@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,9 +13,194 @@ body {
   margin: 0;
   padding: 0;
   overscroll-behavior: none;
+  font-family: 'Outfit', sans-serif;
+  background-color: #030712;
+  color: #f3f4f6;
+  position: relative;
+  overflow-x: hidden;
 }
 
-select option {
-  background: #0d1929;
-  color: white;
+/* Stadium grid overlay */
+.stadium-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(30, 41, 59, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(30, 41, 59, 0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-position: center top;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Floating Glassmorphic Neon Orbs for Infinite Depth */
+.neon-orb-orange {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.12) 0%, rgba(249, 115, 22, 0) 70%);
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 12s infinite alternate ease-in-out;
+}
+
+.neon-orb-cyan {
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, rgba(6, 182, 212, 0) 70%);
+  filter: blur(50px);
+  pointer-events: none;
+  z-index: 0;
+  animation: floatOrb 15s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes floatOrb {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    transform: translate(40px, 30px) scale(1.15);
+  }
+}
+
+/* Premium Sports Card Styling */
+.glass-panel {
+  background: rgba(10, 18, 32, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(30, 58, 95, 0.35);
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+  border-radius: 24px;
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.glass-panel-hover:hover {
+  background: rgba(13, 25, 41, 0.85);
+  border-color: rgba(249, 115, 22, 0.4);
+  box-shadow: 0 12px 45px 0 rgba(249, 115, 22, 0.15);
+  transform: translateY(-3px);
+}
+
+.glass-panel-cyan-hover:hover {
+  background: rgba(13, 25, 41, 0.85);
+  border-color: rgba(6, 182, 212, 0.4);
+  box-shadow: 0 12px 45px 0 rgba(6, 182, 212, 0.15);
+  transform: translateY(-3px);
+}
+
+/* Stadium light reflection effect */
+.stadium-light-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 250px;
+  background: linear-gradient(to bottom, rgba(249, 115, 22, 0.08) 0%, rgba(3, 7, 18, 0) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.pulse-border-orange {
+  animation: pulseBorder 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseBorder {
+  0%, 100% {
+    border-color: rgba(249, 115, 22, 0.25);
+    box-shadow: 0 0 15px 0 rgba(249, 115, 22, 0.05);
+  }
+  50% {
+    border-color: rgba(249, 115, 22, 0.7);
+    box-shadow: 0 0 25px 3px rgba(249, 115, 22, 0.2);
+  }
+}
+
+.pulse-border-cyan {
+  animation: pulseBorderCyan 2.5s infinite ease-in-out;
+}
+
+@keyframes pulseBorderCyan {
+  0%, 100% {
+    border-color: rgba(6, 182, 212, 0.25);
+    box-shadow: 0 0 15px 0 rgba(6, 182, 212, 0.05);
+  }
+  50% {
+    border-color: rgba(6, 182, 212, 0.7);
+    box-shadow: 0 0 25px 3px rgba(6, 182, 212, 0.2);
+  }
+}
+
+/* Glow chips */
+.glow-chip-orange {
+  background: rgba(249, 115, 22, 0.1);
+  border: 1px solid rgba(249, 115, 22, 0.35);
+  box-shadow: 0 0 12px rgba(249, 115, 22, 0.1);
+}
+
+.glow-chip-cyan {
+  background: rgba(6, 182, 212, 0.1);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  box-shadow: 0 0 12px rgba(6, 182, 212, 0.1);
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030712;
+}
+::-webkit-scrollbar-thumb {
+  background: #1e293b;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #f97316;
+}
+
+/* Score display glow */
+.score-value-glow {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15), 0 0 40px rgba(249, 115, 22, 0.2);
+}
+
+/* Button hover feedback */
+.score-btn-active {
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.score-btn-active:active {
+  transform: scale(0.92);
+  filter: brightness(1.2);
+}
+
+.neon-btn-orange {
+  box-shadow: 0 4px 20px 0 rgba(249, 115, 22, 0.25);
+}
+.neon-btn-orange:hover {
+  box-shadow: 0 6px 25px 0 rgba(249, 115, 22, 0.45);
 }
