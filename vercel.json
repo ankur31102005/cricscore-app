@@ -1,5 +1,0 @@
-{
-  "buildCommand": "npm --prefix CricScore-App install && npm --prefix CricScore-App run build",
-  "outputDirectory": "CricScore-App/dist",
-  "installCommand": "echo skip"
-}
